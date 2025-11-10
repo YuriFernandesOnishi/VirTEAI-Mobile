@@ -16,13 +16,14 @@ export const Logo = styled.Image`
 `
 export const Menu = styled.Image`
     width: 38px;
-    height: 27px;
+    height: 30px;
     margin-left: 83%;
     margin-top: -48px;
 `
 ///////
 export const HomeImage = styled.Image`
     width: 100%;
+    height: 180px;
 `
 export const TituloSobrenos = styled.Text`
     font-size: 30px;
@@ -34,7 +35,7 @@ export const TituloSobrenos = styled.Text`
 export const Paragrafos = styled.Text`
     font-size: 22px;
     color: #000000ff;
-    margin-bottom: 43;
+    margin-bottom: 43px;
     width: 352px;
      text-align: justify;
 `
@@ -93,4 +94,36 @@ export const PerfilTexto = styled.Text`
     margin-top: 5px;
     width: 110px;
     text-align: center;
+`
+/////////////
+export const ContainerContato = styled.View`
+    width: 100%;
+    height: 350px;
+    background-color: #ECECEC;
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    
+`
+export const ContatoTitulo = styled.Text`
+    font-size: 22px;
+    color: #000000ff;
+    margin-bottom: 20px;
+   margin-top: 40px;
+`
+export const CardSac = styled.View`
+    background-color: #ffffffff;
+    width: 273px;
+    height: 64px;
+    border-radius: 15px;
+    elevation: 6px;
+    margin-bottom: 20px;
+`
+export const SaqImages = styled.Image`
+margin: 20px;
+`
+export const RotuloSac = styled.Text`
+    font-size: 15px;
+    
+
 `

@@ -6,6 +6,9 @@ import Home from './src/screens/home';
 import SobreNos from './src/screens/SobreNos';
 import Ofertas from './src/screens/Ofertas';
 import Notificacoes from './src/screens/notificacoes';
+import { Text } from 'react-native';
+import SuasCompras from './src/screens/SuasCompras';
+import SuaConta from './src/screens/acessoconta';
 
 
 const ContainerApp = styled.SafeAreaView`
@@ -19,9 +22,12 @@ export default function App() {
       {/* <Cadastro/> */}
       {/* <Login/> */}
       {/* <Home/> */}
-      {/* <SobreNos/> */}
+      <SobreNos/>
       {/* <Ofertas/> */}
-      <Notificacoes/>
+      {/* <Notificacoes/> */}
+     {/* <SuasCompras/> */}
+     {/* <SuaConta/> */}
+     
     </ContainerApp>
   );
 }

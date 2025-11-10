@@ -9,17 +9,17 @@ export const OfertasContainer = styled.View`
 export const Navegacao = styled.View`
     background-color: #CADAED;
     width: 100%;
-    height: 75px;
+    height: 90px;
     display: flex;
 `
 export const Logo = styled.Image`
-    margin: 7px;
+    margin: 9px;
 `
 export const Menu = styled.Image`
     width: 38px;
-    height: 27px;
+    height: 30px;
     margin-left: 83%;
-    margin-top: -48;
+    margin-top: -48px;
 `
 ///////
 export const HomeImage = styled.Image`

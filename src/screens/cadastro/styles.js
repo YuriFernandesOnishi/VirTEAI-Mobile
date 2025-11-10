@@ -39,7 +39,7 @@ export const TextoCadastro = styled.Text`
 export const ContainerCadastros = styled.View`
     background-color: #9CB4D3;
     width: 291px;
-    height: 497px;
+    height: 487px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,7 +73,7 @@ export const Button = styled.TouchableOpacity`
    border-radius: 15px;
    width: 91px;
    height: 30px;
-   margin-top: 50px;
+   margin-top: 30px;
    display: flex;
     justify-content: center;
 `

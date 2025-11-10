@@ -1,11 +1,14 @@
 import React from "react";
 import { ScrollView } from "react-native";
 import { 
+    CardSac,
+    ContainerContato,
     ContainerHomens,
     ContainerMissao,
     ContainerMulheres,
     ContainerNossoTime,
     ContainerPerfil,
+    ContatoTitulo,
     Footer, 
     FooterColumn, 
     FooterContact, 
@@ -20,6 +23,8 @@ import {
     ParagrafoTime, 
     PerfilCreators, 
     PerfilTexto, 
+    RotuloSac, 
+    SaqImages, 
     SobreNosContainer, 
     TextFooter,
     TituloSobrenos, 
@@ -121,7 +126,20 @@ export default function SobreNos() {
                         </ContainerHomens>
                     </ContainerNossoTime>
 
-                 
+                    <ContainerContato>
+                        <ContatoTitulo>Entre em contato</ContatoTitulo>
+                        <CardSac>
+                            <SaqImages source={require('../../assets/emailiconsac.png')}/>
+                            <RotuloSac>Email</RotuloSac>
+                        </CardSac>
+                        <CardSac>
+                            <SaqImages source={require('../../assets/socialmediaicon.png')}/>
+
+                        </CardSac>
+                        <CardSac>
+                            <SaqImages source={require('../../assets/faqicon.png')}/>
+                        </CardSac>
+                    </ContainerContato>
 
                         
                 

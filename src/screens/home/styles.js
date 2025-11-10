@@ -16,10 +16,10 @@ export const Logo = styled.Image`
     margin: 9px;
 `
 export const Menu = styled.Image`
-    width: 48px;
-    height: 27px;
+    width: 38px;
+    height: 30px;
     margin-left: 83%;
-    margin-top: -28px;
+    margin-top: -60px;
 `
 ///////
 export const HomeImage = styled.Image`
@@ -76,7 +76,7 @@ export const TextoClientes = styled.Text`
    font-size: 12px;
     margin: 10px;
     color: #000000ff;
-    width: 152px;
+    width: 190px;
     text-align: center;
 `
 export const CardTextoClientes = styled.Text`
@@ -84,6 +84,7 @@ export const CardTextoClientes = styled.Text`
     margin: 10px;
     color: #000000ff;
     width: 204px;
+    text-align: justify;
 `
 //////////////////
 export const SectionEmpresas = styled.View`

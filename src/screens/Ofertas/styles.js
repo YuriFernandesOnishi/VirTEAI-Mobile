@@ -17,7 +17,7 @@ export const Logo = styled.Image`
 `
 export const Menu = styled.Image`
     width: 38px;
-    height: 27px;
+    height: 30px;
     margin-left: 83%;
     margin-top: -48px;
 `
