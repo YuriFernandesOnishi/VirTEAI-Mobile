@@ -1,12 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import styled from 'styled-components/native';
+import styled, { ThemeProvider } from 'styled-components/native';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { Drawer } from 'expo-router/drawer';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { Slot } from 'expo-router';
+import theme from '../ui/theme';
 
 const Container = styled.SafeAreaView`
     flex: 1;
@@ -99,25 +100,16 @@ export default function RootLayout() {
         );
     }
 
-    // Quando as fontes estiverem prontas, renderiza o Drawer.
-    // O Drawer mapeia automaticamente as rotas presentes em src/app.
-    // Se quiser sobrescrever labels/titles, adicione <Drawer.Screen name="..." options={{ drawerLabel, title }} />
+    // Quando as fontes estiverem prontas, renderiza o app com Slot e tema.
     return (
         <GestureHandlerRootView style={{ flex: 1 }}>
             <SafeAreaProvider>
-                <Container>
-                    <StatusBar hidden={true} />
-                    <Drawer>
-                        {/* Exemplo de telas explícitas — comente/ajuste conforme sua estrutura de rotas */}
-                        <Drawer.Screen
-                            name="index"
-                            options={{
-                                drawerLabel: 'Home',
-                                title: 'Overview',
-                            }}
-                        />
-                    </Drawer>
-                </Container>
+                <ThemeProvider theme={theme}>
+                    <Container>
+                        <StatusBar hidden={true} />
+                        <Slot />
+                    </Container>
+                </ThemeProvider>
             </SafeAreaProvider>
         </GestureHandlerRootView>
     );
