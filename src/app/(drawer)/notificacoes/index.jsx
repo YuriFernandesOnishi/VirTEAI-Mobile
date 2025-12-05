@@ -25,7 +25,6 @@ export default function Notificacoes () {
         <NotificacoesHeader>
           <TituloNotificacoes>Notificações</TituloNotificacoes>
         </NotificacoesHeader>
-
         <NotificacoesView>
           <TextoImagem>
             <TextoMaior>Novo recurso disponível!:</TextoMaior>
@@ -74,7 +73,6 @@ export default function Notificacoes () {
           </TextoImagem>
           <TextoMaior></TextoMaior>
         </NotificacoesView>
-
       </NotificacoesContainer>
     </ScrollView>
   );

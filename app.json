@@ -8,18 +8,21 @@
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/virteailogo.png",
+      "image": "",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": ""
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.VirTEAIMobile"
+      "bundleIdentifier": "com.anonymous.VirTEAIMobile",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/virteailogo.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "",
+        "backgroundColor": ""
       },
       "edgeToEdgeEnabled": true,
       "package": "com.anonymous.VirTEAIMobile"
