@@ -1,23 +1,24 @@
 {
   "expo": {
     "name": "VirTEAI-Mobile",
-    "slug": "VirTEAI-Mobile",
+    "slug": "virteaimobile",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "",
+      "image": "./assets/virteailogo.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.VirTEAIMobile"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "",
+        "foregroundImage": "./assets/virteailogo.png",
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
@@ -29,6 +30,18 @@
     "plugins": [
       "expo-font",
       "expo-router"
-    ]
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "54965261-f582-40a2-a577-e8b638d56300"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/54965261-f582-40a2-a577-e8b638d56300"
+    }
   }
 }
