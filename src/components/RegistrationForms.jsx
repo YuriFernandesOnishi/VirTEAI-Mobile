@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from "react";
-import {Alert} from "react-native";
-import {useNavigation} from "expo-router";
+import React, { useEffect, useState } from "react";
+import { Alert, ScrollView, KeyboardAvoidingView, Platform } from "react-native";
+import { useNavigation, useRouter } from "expo-router";
 import api from "../utils/api";
 import Input from "../components/input/Input";
 import Button from "../components/button/Button";
@@ -14,13 +14,14 @@ import Button from "../components/button/Button";
  */
 export default function RegistrationForm({ redirectTo = "/", onSuccess, variant = "patient" }) {
   const navigation = useNavigation();
+  const router = useRouter();
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [cpf, setCpf] = useState("");
   const [password, setPassword] = useState("");
-  const [registro, setRegistro] = useState(""); // campo visual para "therapist"
+  const [registro, setRegistro] = useState(""); // para terapeutas
   const [loading, setLoading] = useState(false);
 
   const [firstNameError, setFirstNameError] = useState("");
@@ -49,7 +50,7 @@ export default function RegistrationForm({ redirectTo = "/", onSuccess, variant 
   const validateEmail = (e) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((e || "").trim());
   const sanitizeCpf = (raw) => (raw || "").replace(/\D/g, "");
 
-  function validateAll() {
+  const validateAll = () => {
     let ok = true;
     setFirstNameError("");
     setLastNameError("");
@@ -88,9 +89,9 @@ export default function RegistrationForm({ redirectTo = "/", onSuccess, variant 
     }
 
     return ok;
-  }
+  };
 
-  async function handleSubmit() {
+  const handleSubmit = async () => {
     if (!validateAll()) return;
 
     const payload = {
@@ -110,9 +111,7 @@ export default function RegistrationForm({ redirectTo = "/", onSuccess, variant 
           text: "OK",
           onPress: () => {
             if (onSuccess) onSuccess(resp);
-            try {
-              navigation.replace(redirectTo);
-            } catch (e) {}
+            router.replace(redirectTo); // apenas redireciona, não loga automaticamente
           },
         },
       ]);
@@ -125,69 +124,74 @@ export default function RegistrationForm({ redirectTo = "/", onSuccess, variant 
     } finally {
       setLoading(false);
     }
-  }
+  };
 
   return (
-    <>
-      <Input
-        label="Primeiro Nome:"
-        placeholder="Insira seu primeiro nome"
-        value={firstName}
-        onChangeText={setFirstName}
-        error={firstNameError}
-      />
-      <Input
-        label="Sobrenome:"
-        placeholder="Insira seu sobrenome"
-        value={lastName}
-        onChangeText={setLastName}
-        error={lastNameError}
-      />
-      <Input
-        label="Email:"
-        placeholder="Insira seu email"
-        value={email}
-        onChangeText={setEmail}
-        keyboardType="email-address"
-        autoCapitalize="none"
-        error={emailError}
-      />
-      <Input
-        label="CPF:"
-        placeholder="Apenas números"
-        value={cpf}
-        onChangeText={(t) => setCpf((t || "").replace(/\D/g, ""))}
-        keyboardType="numeric"
-        maxLength={11}
-        error={cpfError}
-      />
-      <Input
-        label="Senha:"
-        placeholder="Defina a sua senha"
-        value={password}
-        onChangeText={setPassword}
-        secureTextEntry
-        error={passwordError}
-      />
-
-      {variant === "therapist" && (
+    <KeyboardAvoidingView
+      style={{ flex: 1 }}
+      behavior={Platform.OS === "ios" ? "padding" : undefined}
+    >
+      <ScrollView contentContainerStyle={{ alignItems: "center", paddingBottom: 40 }}>
         <Input
-          label="Registro Profissional:"
-          placeholder="Registro Profissional"
-          value={registro}
-          onChangeText={setRegistro}
-          editable={true}
-          error={""}
+          label="Primeiro Nome:"
+          placeholder="Insira seu primeiro nome"
+          value={firstName}
+          onChangeText={setFirstName}
+          error={firstNameError}
         />
-      )}
+        <Input
+          label="Sobrenome:"
+          placeholder="Insira seu sobrenome"
+          value={lastName}
+          onChangeText={setLastName}
+          error={lastNameError}
+        />
+        <Input
+          label="Email:"
+          placeholder="Insira seu email"
+          value={email}
+          onChangeText={setEmail}
+          keyboardType="email-address"
+          autoCapitalize="none"
+          error={emailError}
+        />
+        <Input
+          label="CPF:"
+          placeholder="Apenas números"
+          value={cpf}
+          onChangeText={(t) => setCpf((t || "").replace(/\D/g, ""))}
+          keyboardType="numeric"
+          maxLength={11}
+          error={cpfError}
+        />
+        <Input
+          label="Senha:"
+          placeholder="Defina a sua senha"
+          value={password}
+          onChangeText={setPassword}
+          secureTextEntry
+          error={passwordError}
+        />
 
-      <Button
-        title="Enviar"
-        onPress={handleSubmit}
-        loading={loading}
-        disabled={loading}
-        variant="submit"
-      />
-    </>
+        {variant === "therapist" && (
+          <Input
+            label="Registro Profissional:"
+            placeholder="Registro Profissional"
+            value={registro}
+            onChangeText={setRegistro}
+            editable={true}
+            error={""}
+          />
+        )}
+
+        <Button
+          title="Enviar"
+          onPress={handleSubmit}
+          loading={loading}
+          disabled={loading}
+          variant="submit"
+        />
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 }
